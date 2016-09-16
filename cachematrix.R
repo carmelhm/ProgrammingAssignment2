@@ -9,18 +9,28 @@
 ## 4.get the value of the mean
 
 makeCacheMatrix <- function(x = matrix()) {
-  m <- NULL
-  set <- function(y) {
-    x <<- y
-    m <<- NULL
-  }
-  get <- function() x
-  setmean <- function(mean) m <<- mean
-  getmean <- function() m
-  list(set = set, get = get,
-       setmean = setmean,
-       getmean = getmean)
-
+    ## m stores the cached value  
+    m <- NULL
+    
+    # create the matrix in the working  
+    set <- function(y) {
+        x <<- y
+        m <<- NULL
+    }
+    
+    # get the value of x matrix  
+    get <- function() x
+    
+    # m stores the inverse of the matrix
+    setInverse <- function(inverse) m <<- inverse
+    
+    # get the inverted matrix
+    getInverse <- function() m
+    
+    
+    list(set = set, get = get,
+         setInverse = setInverse,
+         getInverse = getInverse)
 }
 
 
